@@ -23,3 +23,9 @@ func TestRot13(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkRot13(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		Rot13("Test avec une longue phrase !")
+	}
+}
