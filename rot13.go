@@ -1,24 +1,15 @@
 package rot13
 
-import "strings"
-
-func Rot13(toCrypt string) (crypted string) {
-	alphab := "abcdefghijklmnopqrstuvwxyz"
-	alphabMaj := strings.ToUpper(alphab)
-	alphabet := strings.Split(alphab, "")
-	alphabetMaj := strings.Split(alphabMaj, "")
-
-	lettersToCrypt := strings.Split(toCrypt, "")
-
-	for _, letterToCrypt := range lettersToCrypt {
-		if strings.Index(alphabMaj, letterToCrypt) >= 0 {
-			crypted += alphabetMaj[(strings.Index(alphabMaj, letterToCrypt)+13)%26]
-		} else if strings.Index(alphab, letterToCrypt) >= 0 {
-			crypted += alphabet[(strings.Index(alphab, letterToCrypt)+13)%26]
-		} else {
-			crypted += letterToCrypt
+func Rot13(s string) string {
+	p := make([]byte, len(s))
+	for i := 0; i < len(s); i++ {
+		b := s[i]
+		if 'a' <= b && b <= 'm' || 'A' <= b && b <= 'M' {
+			b += 13
+		} else if 'n' <= b && b <= 'z' || 'N' <= b && b <= 'Z' {
+			b -= 13
 		}
+		p[i] = b
 	}
-	return crypted
-
+	return string(p)
 }
