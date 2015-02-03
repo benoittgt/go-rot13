@@ -1,5 +1,5 @@
 #Rot13 in Go
 
-First go program, who need feedbacks, critics, refactoring.
+First go program, who needs feedbacks, critics, refactoring.
 
 
