@@ -2,13 +2,13 @@ package rot13
 
 import "strings"
 
-func Rot13(toCrypt string) (crypted string) {
+func Rot13(toEncrypt string) (crypted string) {
 	alphab := "abcdefghijklmnopqrstuvwxyz"
 	alphabMaj := strings.ToUpper(alphab)
 	alphabet := strings.Split(alphab, "")
 	alphabetMaj := strings.Split(alphabMaj, "")
 
-	lettersToCrypt := strings.Split(toCrypt, "")
+	lettersToCrypt := strings.Split(toEncrypt, "")
 
 	for _, letterToCrypt := range lettersToCrypt {
 		if strings.Index(alphabMaj, letterToCrypt) >= 0 {
